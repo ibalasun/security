@@ -35,16 +35,16 @@
             "filename": "../../who-has-access-towhat/who-has-access-towhat.md"
         },
         {
-            "title": "Lab 6: Create Policy Review Campaigns",
-            "filename": "../../create-policy-reviews/create-policy-review.md"
+            "title": "Lab 6: Define Access Controls for OCI IAM and Group Provisioning",
+            "filename": "../../define-access-controls/define-access-control.md"
         },
         {
-            "title": "Lab 7: Perform Policy Review Tasks",
-            "filename": "../../perform-policy-review/perform-policy-review.md"
+            "title": "Lab 7: Request Access to a Resource",
+            "filename": "../../group-provisioning/group-provisioning.md"
         },
         {
-            "title": "Lab 8: Create and Perform Group Membership Review Campaigns",
-            "filename": "../../create-group-membership-review/create-group-membership-review.md"
+            "title": "Lab 8: Application Role Provisioning ",
+            "filename": "../../application-role-provisioning/application-role-provisioning.md"
         },
         {
             "title": "Lab 9: Cleanup the Environment",

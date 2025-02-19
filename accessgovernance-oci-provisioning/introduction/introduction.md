@@ -26,9 +26,11 @@ In this workshop, you will learn how to:
 * Setup and configure Oracle Access Governance service instance
 * Create OCI groups and policies needed
 * Integrate OCI IAM with Access Governance
-* Create policy review campaigns as a **campaign administrator**
-* Perform policy review tasks - **Review the OCI IAM policies, as part of which you can either revoke or accept the entire policy or specific statements within the policy**
-* Monitor and manage policy review campaigns as a **campaign administrator**
+* Create Access Bundles and Identity Collections for Group and Application Role Provisioning
+* Create Group Provisioning - To Assign multiple OCI IAM groups for an OCI domain from Oracle Access Governance
+* Create Application Role Provisioning - To Assign OCI application roles to OCI identities for services running in an OCI domain
+* Perform Group Access Review Tasks - **Review the identity access reviews for the groups granted through access request by Oracle Access Governance.**
+* Perform Application Role Access Review Tasks - **Review the identity access reviews for the roles granted through access request by Oracle Access Governance**
 
 ### Prerequisites
 This lab assumes you have:
