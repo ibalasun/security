@@ -58,29 +58,25 @@ Create a compartment for yourself in Oracle Cloud Infrastructure Identity and Ac
 
 Create a user group and add your Oracle Cloud account to the group.
 
-1. From the navigation menu, select **Identity & Security**, and then **Domains**. Click the name of your domain (for example, **Default**), and then on the left, click **Groups**.
+1. From the navigation menu, select **Identity & Security**, and then **Domains**. Change to the correct compartment, and then click the name of your domain (for example, **Default**).
 
-    The **Groups** page in IAM is displayed.
+2. Click the **User management** tab.
 
-2. Click **Create Group**.
+3. Scroll down, and then click **Create group**.
 
-    The **Create Group** dialog box is displayed.
+    The **Create group** page is displayed.
 
-3. Enter a name for the group, for example, `dsg01` (short for Data Safe group 1).
+4. Enter a name for the group, for example, `dsg01` (short for Data Safe group 1).
 
-4. Enter a description for the group, for example, **User group for data safe user 1**. A description is required.
+5. Enter a description for the group, for example, **User group for data safe user 1**. A description is required.
 
-5. (Optional) Click **Show Advanced Options** and create a tag.
+6. (Optional) Click **Add tag** and create a tag.
 
-6. Click **Create**.
+7. Click **Create**.
 
-    The **Group Details** page is displayed.
+8. Click the **Users** tab.
 
-7. Under **Group Members**, click **Add User to Group**.
-
-    The **Add User to Group** dialog box is displayed.
-
-8. From the drop-down list, select the user for this workshop, and then click **Add**.
+9. Search for the user for this workshop, and then click **Assign user to group**.
 
     The user is listed as a group member.
 
@@ -89,11 +85,11 @@ Create a user group and add your Oracle Cloud account to the group.
 
 Create an IAM policy that grants you the necessary permissions for the workshop.
 
-1. From the navigation menu, select **Identity & Security**, and then **Policies**.
+1. On the left, select **Policies**.
 
-    The **Policies** page in IAM is displayed.
+    The **Policies** page is displayed.
 
-2. On the left under **COMPARTMENT**, select the **root** compartment.
+2. Change the compartment to the **root** compartment.
 
 3. Click **Create Policy**.
 
@@ -105,7 +101,7 @@ Create an IAM policy that grants you the necessary permissions for the workshop.
 
 6. From the **COMPARTMENT** drop-down list, leave the **root** compartment selected.
 
-7. In the **Policy Builder** section, move the **Show manual editor** slider to the right to display the policy field.
+7. In the **Policy Builder** section, click **Show manual editor**.
 
 8. In the policy field, enter the following policy statements. Substitute `{group name}` and `{compartment name}` with the appropriate values.
 
@@ -145,37 +141,34 @@ Create an IAM policy that grants you the necessary permissions for the workshop.
 
 ## Task 4: Provision an Autonomous Transaction Processing database
 
-Create an Autonomous Transaction Processing (ATP) database in your compartment. Before proceeding, make sure that you have enough quota in your tenancy to create an (Always Free) Autonomous Database.
+Create an Autonomous Transaction Processing (ATP) database in your compartment. You can create an Always Free Autonomous Database for this workshop provided your tenancy has enough quota.
 
 > **Note**: If you plan to use an existing ATP database in your tenancy or you are using an Oracle-provided environment, you can skip this task.
 
-1. From the navigation menu, select **Oracle Database**, and then **Autonomous Transaction Processing**.
+1. From the navigation menu, select **Oracle Database**, and then **Autonomous Database**.
 
-2. In the **Filters** section on the left, make sure your workload type is **Transaction Processing** or **All** so that you can view your database listing after you create your database.
-
-3. From the **Compartment** drop-down list, select your compartment.
+2. If needed, change your compartment.
 
 4. Click **Create Autonomous Database**.
 
-5. On the **Create Autonomous Database** page, provide basic information for your database:
+5. On the **Create Autonomous Database Serverless** page, provide basic information for your database:
 
-    - **Compartment** - If needed, select a different compartment.
     - **Display name** - Enter a memorable name for the database for display purposes.
     - **Database name** - Enter a database name. It's important to use letters and numbers only, starting with a letter. The maximum length is 14 characters. Underscores are not supported.
+    - **Compartment** - If needed, select a different compartment.
     - **Workload type** - Select **Transaction Processing**.
-    - **Deployment type** - Leave **Serverless** selected.
-    - **Always Free** - Select this option by moving the slider to the right.
-    - **Database version** - If possible, select **23ai**.
+    - **Always Free** - (Optional) Select this option by moving the slider to the right.
+    - **Database version** - If possible, select **23ai** (required to do the SQL Firewall lab in the Get Started with Oracle Data Safe Fundamentals workshop).
     - **Password** and **Confirm Password** - Specify a password for the `ADMIN` database user and jot it down. In order for you to later register this database with Data Safe, the password must be between 14 and 30 characters long and must include at least one uppercase letter, one lowercase letter, one numeric character, and one special character. It cannot contain your username or the double quote (") character.
     - **Access Type** - Leave **Secure access from everywhere** selected.
 
-6. Click **Create Autonomous Database**. 
+6. Click **Create**. 
 
-    The **Autonomous Database details** page is displayed.
+    The **Autonomous Database** page is displayed.
 
 7. Wait a few minutes for your database instance to provision. 
 
-    **AVAILABLE** is displayed below the large ATP icon.
+    **Available** is displayed next to the name of your database.
 
     ![Autonomous Database Details page](images/autonomous-database-details-page.png "Autonomous Database Details page")
 
@@ -215,7 +208,7 @@ Create an Autonomous Transaction Processing (ATP) database in your compartment. 
 
 Database Actions provides a way for you to run SQL commands on your target database. The step-by-step instructions for accessing Database Actions are covered here. The labs simply say to "access the SQL worksheet in Database Actions." You can always refer back to these steps for help if needed.
 
-1. At the top of the **Autonomous Database details** page, from the **Database actions** menu, select **SQL**.
+1. At the top of the **Autonomous Databases** page, from the **Database actions** menu, select **SQL**.
 
 2. If required, sign in as the `ADMIN` user. 
 
@@ -287,4 +280,4 @@ You may now **proceed to the next lab**.
 ## Acknowledgements
 
 - **Author** - Jody Glover, Consulting User Assistance Developer, Database Development
-- **Last Updated By/Date** - Jody Glover, December 6, 2024
+- **Last Updated By/Date** - Jody Glover, May 23, 2025
