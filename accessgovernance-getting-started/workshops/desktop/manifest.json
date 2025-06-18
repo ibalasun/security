@@ -8,11 +8,6 @@
             "filename": "../../desktop-introduction/desktop-introduction.md"
         },
         {
-            "title": "Get Started with noVNC Remote Desktop",
-            "description": "Using noVNC Remote Desktop",
-            "filename": "https://oracle-livelabs.github.io/common/labs/remote-desktop/using-novnc-remote-desktop.md"
-        },
-        {
             "title": "Lab 1: Setup and configure Oracle Access Governance service instance",
             "description": "Labs that follow the introduction are numbered, starting with Lab ",
             "filename": "../../desktop-ag-instance/desktop-instance-setup.md"

@@ -21,147 +21,19 @@ This lab assumes you have:
 
 A valid Oracle OCI tenancy, with OCI administrator privileges.
 
-## Task 1 : Verify Docker is up and Running
 
-1. Open a terminal session.
-
-2. Check the version of the docker.
-
-    ```
-    <copy>docker -v</copy>
-    ```
-
-    ```
-    Expected output: Docker version 23.0.0, build e92dd87
-    ```
-
-3. Validate the status to verify if docker service is up/running
-
-    ```
-    <copy>systemctl status docker</copy>
-    ```
-
-     Enter **Ctrl+C** to return to the command prompt
-
-## Task 2: Start the Oracle Identity Governance (OIG) DB Service
-
-1. Move to the directory where the script files are located.
-
-    ```
-    <copy>cd /scratch/idmqa/scripts</copy>
-    ```
-
-2. List the files inside the directory.
-
-    ```
-    <copy>ls</copy>
-    ```
-
-3. Start DB and all servers manually,using below scripts.
-
-    ```
-    <copy>./start_db.sh</copy>
-    ```
-
-    Wait till DB gets started.
-
-4. Now start the OIG services, using the below command.
-
-    ```
-    <copy>./start_all_servers.sh</copy>
-    ```
-
-5. To create the LiveLab user in OIG, execute the below command to create a file create_user.sh
-
-    ```
-    <copy>touch create_user.sh
-    chmod +x create_user.sh
-    vi create_user.sh</copy>
-    ```
-
-6. Press Ctrl+I to enter into the Insert mode.
-
-7. Paste the below content in the file  create_user.sh
-
-    ```
-    <copy>#!/bin/bash
-
-    if [ $# -ne 1 ]; then
-    echo "Usage: $0 <User_Login>"
-    exit 1
-    fi
-
-    USER_LOGIN="$1"
-
-    cat <<EOF > post.json
-    {
-    "users": [
-        {
-        "requestId": "123",
-        "fields": [
-            {
-            "name": "First Name",
-            "value": "LL"
-            },
-            {
-            "name": "Last Name",
-            "value": "USER"
-            },
-            {
-            "name": "Email",
-            "value": "lluser@aglivelab.com"
-            },
-            {
-            "name": "Role",
-            "value": "EMP"
-            },
-            {
-            "name": "act_key",
-            "value": 1
-            },
-            {
-            "name": "User Login",
-            "value": "$USER_LOGIN"
-            }
-        ]
-        }
-    ]
-    }
-    EOF
-
-    # Execute the curl request
-    curl -H "Content-Type: application/json" \
-        -H "X-Requested-By: AG-LIVELAB" \
-        -X POST -u xelsysadm:Welcome1 \
-        -d @post.json http://oimhost.us.oracle.com:14000/iam/governance/selfservice/api/v1/users</copy>
-        ```
-
-8. Execute the **create_user.sh** by replacing the Livelabs username placeholder with the Livelab user you are assigned to in this workshop.
-
-    ```
-    <copy>./create_user.sh <Livelabs_username></copy>
-    ```
     
 
-## Task 3: Verify the Private IP address of Compute Instance
+## Task 1: Verify the Private IP address of Compute Instance from the Terminal
 
-1. Launch a browser window. Login to OCI console using the URL mentioned below. The OCI account sign in page appears. Enter the username and password provided in the *LiveLab* login information. 
+1. Open the terminal session. Here you can find the private IP address of Compute Instance. 
 
-    ```
-    <copy>https://console.us-ashburn-1.oraclecloud.com/</copy>
-    ```
+2. Notedown the Private IP address of the Compute Instance for reference. We will require to use them in the further labs.
 
-2. Click the Navigation Menu icon in the top left corner to display the *Navigation menu.* Select *Compute* in the *Navigation menu*. Select *Instances* from the list of products.
+      ![List of files in directory](images/terminal-private-ip.png)
 
-    ![OCI Console Compute Instances](images/compute-instance.png)
 
-3. Notedown the Private IP address of the Compute Instance for reference. We will require to use them in the further labs.
-
-      ![List of files in directory](images/private-ip.png)
-
-    You may now **proceed to the next lab.**
-
-## Task 4: Integrate with Oracle Identity Governance
+## Task 2: Integrate with Oracle Identity Governance
 
 1. On the Oracle Access Governance service home page *refer Lab 2:Task 1*, click on the Navigation Menu icon and select **Service Administration** and then **Orchestrated Systems.**
 
@@ -279,7 +151,7 @@ A valid Oracle OCI tenancy, with OCI administrator privileges.
     Click on **Activate**. Confirm the Activation of oig in the pop-up dialog box. 
 
 
-## Task 5: Install OIG Agent on the Compute Instance and Configure
+## Task 3: Install OIG Agent on the Compute Instance and Configure
 
 1. Open the terminal session.
 
@@ -347,7 +219,7 @@ A valid Oracle OCI tenancy, with OCI administrator privileges.
 
     ![Enter Details](images/oci-connection-status.png)
 
-## Task 6: Connect to Oracle Database and download the DB Agent
+## Task 4: Connect to Oracle Database and download the DB Agent
 
 1. Navigate to the **Orchestrated Systems** page of the Oracle Access Governance Console, by following these steps:
   From the Oracle Access Governance navigation menu icon **Navigation menu**, select **Service Administration** → **Orchestrated  Systems**.
@@ -406,7 +278,7 @@ A valid Oracle OCI tenancy, with OCI administrator privileges.
     
 
 
-## Task 7: Install the DB Agent on the Target System
+## Task 5: Install the DB Agent on the Target System
 
 1. Open the terminal.
 
@@ -446,7 +318,7 @@ A valid Oracle OCI tenancy, with OCI administrator privileges.
       <copy>sh agentManagement.sh --volume /home/opc/vol_oag_db --start</copy>
      ```
 
-## Task 8: Verify the Agent Installation
+## Task 6: Verify the Agent Installation
 
 1. Login to the Oracle Access Governance Console, select the Navigation Menuicon to display the navigation menu.
 2. In the Oracle Access Governance Console, select Service Administration → Orchestrated Systems from the navigation menu.

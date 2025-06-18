@@ -15,7 +15,7 @@ In this lab, you will:
 
 * Create AG Service Instance
 * Access the AG console url
-* Assign AG Roles to the Livelab User in OCI IAM
+
 
 ### Prerequisites
 
@@ -51,26 +51,6 @@ Login to the OCI console using the Identity domain: Default domain as the **Live
 5. Click on the Service Instance to access the URL.
 
     ![Access Governance console](images/ag-console.png)
-
-
-## Task 2: Assign AG Application Roles to Users
-
-1. Login to the OCI console Identity Domain: Default as the **Livelab User**
-
-2. In the OCI console, navigate to Identity -> Domains -> Default -> Oracle Cloud Services -> AG-service-instance -> Application Role.
-
-    * Notice the *AG Administrator* Role and Click on the Downward arrow on the right corner.
-
-    ![OIG Identity Roles and Access Policies](images/user-approle.png)
-
-    * Click on *Assigned Users -> Manage*. Select *LiveLab User* in *Available Users.* Click on *Assign*
-
-    ![OIG Identity Roles and Access Policies](images/user-approle-list.png)
-
-
-    * *LiveLab User* has been assigned with the *AG Administrator* application role. You can now close the window.
-
-    * Similarly assign the *Livelab user* with the role *AG Campaign Administrator*
 
 
     You may now **proceed to the next lab.**
